@@ -3,7 +3,7 @@ from tensorflow.python.keras.preprocessing.text import Tokenizer
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 import data_extract as data_source
 import pickle
-from ploting_graph import plot_history
+# from ploting_graph import plot_history
 
 modelNN = load_model("NN-model.hdf5")
 modelCNN = load_model("CNN-model.hdf5")

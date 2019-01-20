@@ -7,7 +7,7 @@ from tensorflow.python.keras.callbacks import ModelCheckpoint
 from sklearn.model_selection import train_test_split
 import data_extract as data_source
 import pickle
-from ploting_graph import plot_history
+# from ploting_graph import plot_history
 
 (text, label) = data_source.get_data()
 
@@ -99,4 +99,4 @@ loss, accuracy = model.evaluate(X_train, to_categorical(y_train), verbose=False)
 print("Training Accuracy: {:.4f}".format(accuracy))
 loss, accuracy = model.evaluate(X_test, to_categorical(y_test), verbose=False)
 print("Testing Accuracy:  {:.4f}".format(accuracy))
-plot_history(history)
+# plot_history(history)

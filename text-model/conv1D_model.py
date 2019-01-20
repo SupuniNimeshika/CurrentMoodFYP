@@ -1,7 +1,6 @@
 from tensorflow.python.keras import Sequential
 from tensorflow.python.keras.layers import Conv1D, Dense, Embedding,GlobalMaxPooling1D
 import data_extract as data_source
-from ploting_graph import plot_history
 from tensorflow.python.keras.preprocessing.text import Tokenizer
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
@@ -47,5 +46,5 @@ loss, accuracy = model.evaluate(X_train, to_categorical(y_train), verbose=False)
 print("Training Accuracy: {:.4f}".format(accuracy))
 loss, accuracy = model.evaluate(X_test, to_categorical(y_test), verbose=False)
 print("Testing Accuracy:  {:.4f}".format(accuracy))
-plot_history(history)
+# plot_history(history)
 

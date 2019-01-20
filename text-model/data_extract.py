@@ -1,13 +1,13 @@
 import random
 
 def get_data():
-    angryfile = open('data/angry.txt','r')
+    angryfile = open('../data/angry.txt','r')
     angry = angryfile.readlines()
-    sadfile = open('data/sad.txt','r')
+    sadfile = open('../data/sad.txt','r')
     sad = sadfile.readlines()
-    happyfile = open('data/happy.txt','r')
+    happyfile = open('../data/happy.txt','r')
     happy = happyfile.readlines()
-    calmfile = open('data/calm.txt','r')
+    calmfile = open('../data/calm.txt','r')
     calm = calmfile.readlines()
 
     sad_spot = 0
