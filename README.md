@@ -1,2 +1,0 @@
-# CurrentMoodFYP
-Final Year Project
