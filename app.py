@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import json
 import requests
 import ocr as ocr
+import conv1D_model as cnn
 
 
 app = Flask(__name__)
@@ -62,7 +63,7 @@ def fb_data(token):
 
     image =ocr.url_to_image(store_list[5])
     text=ocr.image_to_text(image)
-    mc.data_predict(text)
+    cnn.data_predict(text)
     print(text)
 
     return jsonify(store_list)
