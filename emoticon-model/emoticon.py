@@ -1,4 +1,5 @@
 import re
+import numpy as np
 from nltk.tokenize import WordPunctTokenizer
 tok =WordPunctTokenizer()
 
@@ -68,10 +69,22 @@ Emoti_dic ={
     "👍":[72.7,0,18.2,9.1], #62.THUMBS UP SIGN
 }
 
-emoti_pattern =re.compiler(r'{'+'|'.join(Emoti_dic.keys())+r'}')
 
-def processEmoti(text):
-    emo=emoti_pattern.sub(lambda y:Emoti_dic[y.group()],text)
-    print(emo)
+
+if __name__ == '__main__':
+    emoticons = extract_emojis('👍 Gon👍 Sadeepa👍')
+    emoticon_result = [0,0,0,0]
+    for e in emoticons:
+        e_value = Emoti_dic.get(e)
+        emoticon_result = np.array(emoticon_result)+np.array(e_value)
+
+
+    print(np.divide(emoticon_result,len(emoticons)))
+
+# emoti_pattern =re.compiler(r'{'+'|'.join(Emoti_dic.keys())+r'}')
+#
+# def processEmoti(text):
+#     emo=emoti_pattern.sub(lambda y:Emoti_dic[y.group()],text)
+#     print(emo)
 
 

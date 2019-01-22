@@ -6,12 +6,17 @@ from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
 from tensorflow.python.keras.utils import to_categorical
 import pickle
+from text_processing import pre_process
+# “ ’ ‘ ” #
 
+(unprocessed_texts, label) = data_source.get_data()
+text =[]
+for unprocessed_text in unprocessed_texts:
+    text.append(pre_process(unprocessed_text))
+    print(pre_process(unprocessed_text))
+embedding_dim = 65
 
-(text, label) = data_source.get_data()
-embedding_dim = 100
-
-MAX_LENGTH =100
+MAX_LENGTH =65
 
 tokenizer = Tokenizer()
 with open("model.pickle","rb") as f:
@@ -34,7 +39,7 @@ model.compile(optimizer='adam',
 model.summary()
 
 history = model.fit(X_train, to_categorical(y_train),
-                    epochs=20,
+                    epochs=35,
                     verbose=False,
                     validation_data=(X_test, to_categorical(y_test)),
                     batch_size=64)
