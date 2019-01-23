@@ -25,7 +25,7 @@ stop_words={
                "herself":'', "him":'', "himself":'', "his":'', "how":'',"how's":'',"i":'',"i'd":'',"i'll":'',"i'm":'',"i've":'',"if":'',"in":'',"into":'',
                "is":'', "it":'',"it's":'', "its":'', "itself":'',"me":'', "might":'', "mine":'', "must":'', "my":'', "myself":'',
                "of":'', "on":'',"only":'', "or":'', "other":'', "others":'',"our":'', "ours":'', "ourselves":'', "out":'', "over":'', "own":'',
-               "she":'',"she'd":'',"she'll":'',"she's":'', "side":'',"since":'', "so":'', "some":'', "somehow":'', "someone":'',
+               "she":'',"she'd":'',"she'll":'',"she's":'', "somehow":'', "someone":'',
                "such":'', "take":'', "than":'', "that":'', "the":'',"that's":'',"their":'',"theirs":'', "them":'', "themselves":'',"then":'', "there":'',"there's":'',
                "these":'', "they":'',"they'd":'',"they'll":'',"they're":'',"they've":'', "this":'', "those":'', "though":'',"to":'', "too":'',
                "under":'', "until":'', "up":'', "very":'', "via":'', "was":'', "we":'',"we'd":'',"we'll":'',"we're":'',"we've":'',
@@ -33,15 +33,22 @@ stop_words={
                "which":'', "while":'',"whither":'', "who":'',"who's":'', "whom":'', "whose":'', "why":'',"why's":'', "will":'', "with":'', "would":'',"yet":'',
                "you":'',"you'd":'',"you'll":'',"you're":'',"you've":'', "your":'', "yours":'', "yourself":'', "yourselves":'',
 }
-
 stop_pattern =re.compile(r'\b('+'|'.join(stop_words.keys())+r')\b')
+
+helping_verb_dic={"i'm":"i am","he's":"he is","she's":"she is","it's":"it is",
+                  "i've":"i have","we're":"we are","you're":"you are","they're":"they are",
+                  "i'll":"i will","you'll":"you will","we'll":"we will","they'll":"they will",
+                  "he'll":"he will","she'll":"she will","it'll":"it will"}
+
+helping_pattern =re.compile(r'\b('+'|'.join(helping_verb_dic.keys())+r')\b')
 
 def pre_process(text):
     soup = BeautifulSoup(text, "html.parser")
     souped = soup.get_text()
     lower_case = souped.lower()
     neg_handled = neg_pattern.sub(lambda x: negations_dic[x.group()], lower_case)
-    stop_handled = stop_pattern.sub(lambda x: stop_words[x.group()], neg_handled)
+    helping_handled = helping_pattern.sub(lambda x: helping_verb_dic[x.group()], neg_handled)
+    stop_handled = stop_pattern.sub(lambda x: stop_words[x.group()], helping_handled)
 
     # convert more than 2 letter repetitions to 2 letter
     # funnnnny --> funny

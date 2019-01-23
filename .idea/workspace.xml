@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3b81ac33-3b22-4ff7-8c7e-2168747665cc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NN-model.hdf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/conv1D_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/conv1D_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/angry.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/angry.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/calm.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/calm.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/happy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/happy.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sad.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/sad.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/model.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/CNN-model.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/model/CNN-model.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/NN-model.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/model/NN-model.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/plot_nn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot/plot_con1D.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot/plot_con1D.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ploting_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/ploting_graph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text_processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/text_processing.py" afterDir="false" />
-    </list>
+    <list default="true" id="3b81ac33-3b22-4ff7-8c7e-2168747665cc" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,48 +36,36 @@
         <counts>
           <entry key="gitignore" value="1" />
           <entry key="hdf5" value="4" />
-          <entry key="png" value="4" />
-          <entry key="py" value="41" />
+          <entry key="png" value="6" />
+          <entry key="py" value="43" />
           <entry key="tsv" value="1" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="4" />
+          <entry key="Image" value="6" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="41" />
+          <entry key="Python" value="43" />
           <entry key="TSV" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3243" />
+          <entry key="py" value="3245" />
           <entry key="txt" value="111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="111" />
-          <entry key="Python" value="3243" />
+          <entry key="Python" value="3245" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/text_processing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="63" column="77" selection-start-line="63" selection-start-column="77" selection-end-line="63" selection-end-column="77" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/calm.txt">
           <provider selected="true" editor-type-id="text-editor">
@@ -124,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neural_network_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="52">
               <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="38" />
             </state>
           </provider>
@@ -140,6 +112,27 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pre-processing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ocr.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ploting_graph.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -150,19 +143,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/sad.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="999" column="114" selection-start-line="999" selection-start-column="114" selection-end-line="999" selection-end-column="114" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conv1D_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+            <state relative-caret-position="119">
+              <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -528,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ocr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1220">
@@ -559,16 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pre-processing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -626,9 +593,26 @@
     <entry file="file://$PROJECT_DIR$/model/plot_nn.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/ploting_graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conv1D_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/neural_network_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="52">
           <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="38" />
         </state>
       </provider>
@@ -639,19 +623,19 @@
     <entry file="file://$PROJECT_DIR$/plot/plot_con1D.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ploting_graph.py">
+    <entry file="file://$PROJECT_DIR$/ocr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        <state relative-caret-position="200">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conv1D_model.py">
+    <entry file="file://$PROJECT_DIR$/pre-processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+        <state relative-caret-position="308">
+          <caret line="23" column="78" selection-start-line="23" selection-start-column="78" selection-end-line="23" selection-end-column="78" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
