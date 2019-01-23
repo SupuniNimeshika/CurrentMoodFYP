@@ -7,9 +7,14 @@ from tensorflow.python.keras.callbacks import ModelCheckpoint
 from sklearn.model_selection import train_test_split
 import data_extract as data_source
 import pickle
-# from ploting_graph import plot_history
+from text_processing import pre_process
+from ploting_graph import plot_history
 
-(text, label) = data_source.get_data()
+(unprocessed_texts, label) = data_source.get_data()
+text =[]
+for unprocessed_text in unprocessed_texts:
+    text.append(pre_process(unprocessed_text))
+
 
 ''''
 data['target'] = data.tags.astype('category').cat.codes
@@ -20,7 +25,7 @@ num_class = len(np.unique(data.tags.values))
 y = data['target'].values
 '''
 
-MAX_LENGTH =100
+MAX_LENGTH =60
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(text)
 post_seq =tokenizer.texts_to_sequences(text)
@@ -40,7 +45,7 @@ predictions = Dense(4,activation='softmax')(x)
 model =Model(inputs=[inputs],outputs=predictions)
 model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['acc'])
 model.summary()
-filepath ="NN-model.hdf5"
+filepath ="model/NN-model.hdf5"
 
 checkpointer = ModelCheckpoint(filepath,monitor='val_acc',verbose=1,save_best_only=True,mode ='max')
 
@@ -48,9 +53,9 @@ history =model.fit(X_train,
                    to_categorical(y_train),
                    batch_size=64,
                    verbose=1,
-                   validation_split=0.15,
+                   validation_split=0.25,
                    shuffle=True,
-                   epochs=10,
+                   epochs=15,
                    callbacks=[checkpointer])
 
 # predicted = model.predict(X_test)
@@ -81,22 +86,8 @@ prob = predictions.argmax(axis=1)
 print(prob)
 '''
 
-#model = load_model("model.hdf5")
-
-# MAX_LENGTH =500
-# tokenizer = Tokenizer()
-# # Testing with new data
-# text=['happy']
-#
-# sequences = tokenizer.texts_to_sequences(text)
-# print(sequences)
-# data = pad_sequences(sequences,maxlen=500)
-# print(X_test)
-# prediction =model.predict(X_test)
-# print(prediction)
-
 loss, accuracy = model.evaluate(X_train, to_categorical(y_train), verbose=False)
 print("Training Accuracy: {:.4f}".format(accuracy))
 loss, accuracy = model.evaluate(X_test, to_categorical(y_test), verbose=False)
 print("Testing Accuracy:  {:.4f}".format(accuracy))
-# plot_history(history)
+plot_history(history)

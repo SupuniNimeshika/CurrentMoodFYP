@@ -1,20 +1,24 @@
 from tensorflow.python.keras import Sequential
-from tensorflow.python.keras.layers import Conv1D, Dense, Embedding,GlobalMaxPooling1D
+from tensorflow.python.keras.layers import Conv1D, Dense, Embedding, GlobalMaxPooling1D, Dropout
 import data_extract as data_source
 from tensorflow.python.keras.preprocessing.text import Tokenizer
+from tensorflow.python.keras.callbacks import ModelCheckpoint
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
 from tensorflow.python.keras.utils import to_categorical
 import pickle
 from text_processing import pre_process
+from ploting_graph import plot_history
 # “ ’ ‘ ” #
 
 (unprocessed_texts, label) = data_source.get_data()
 text =[]
 for unprocessed_text in unprocessed_texts:
     text.append(pre_process(unprocessed_text))
-    print(pre_process(unprocessed_text))
+    # print(pre_process(unprocessed_text))
 embedding_dim = 65
+# print(len(text))
+# print(len(label))
 
 MAX_LENGTH =65
 
@@ -31,25 +35,30 @@ model = Sequential()
 model.add(Embedding(vocab_size, embedding_dim, input_length=MAX_LENGTH))
 model.add(Conv1D(128, 5, activation='relu'))
 model.add(GlobalMaxPooling1D())
+model.add(Dropout(0.2))
 model.add(Dense(32, activation='relu'))
+model.add(Dropout(0.2))
 model.add(Dense(4, activation='softmax'))
 model.compile(optimizer='adam',
               loss='binary_crossentropy',
               metrics=['accuracy'])
 model.summary()
+filepath ="model/CNN-model.hdf5"
+
+checkpointer = ModelCheckpoint(filepath,monitor='val_acc',verbose=1,save_best_only=True,mode ='max')
 
 history = model.fit(X_train, to_categorical(y_train),
-                    epochs=35,
+                    epochs=15,
                     verbose=False,
                     validation_data=(X_test, to_categorical(y_test)),
-                    batch_size=64)
+                    batch_size=64,
+                    callbacks = [checkpointer])
 
-model.save('model/CNN-model.hdf5')
-
+# model.save('model/CNN-model.hdf5')
 
 loss, accuracy = model.evaluate(X_train, to_categorical(y_train), verbose=False)
 print("Training Accuracy: {:.4f}".format(accuracy))
 loss, accuracy = model.evaluate(X_test, to_categorical(y_test), verbose=False)
 print("Testing Accuracy:  {:.4f}".format(accuracy))
-# plot_history(history)
+plot_history(history)
 
