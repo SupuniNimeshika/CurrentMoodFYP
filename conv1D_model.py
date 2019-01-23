@@ -16,11 +16,11 @@ text =[]
 for unprocessed_text in unprocessed_texts:
     text.append(pre_process(unprocessed_text))
     # print(pre_process(unprocessed_text))
-embedding_dim = 65
+embedding_dim = 60
 # print(len(text))
 # print(len(label))
 
-MAX_LENGTH =65
+MAX_LENGTH =60
 
 tokenizer = Tokenizer()
 with open("model.pickle","rb") as f:

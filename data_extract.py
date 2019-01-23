@@ -10,10 +10,11 @@ def get_data():
     calmfile = open('data/calm.txt','r')
     calm = calmfile.readlines()
 
-    sad_spot = 0
-    happy_spot = 1
-    angry_spot = 2
-    calm_spot = 3
+    # Happy, SAd, Clam,Angry
+    happy_spot = 0
+    sad_spot = 1
+    calm_spot = 2
+    angry_spot = 3
 
     data = []
     for line in angry:

@@ -19,4 +19,4 @@ def plot_history(history):
     plt.plot(x, val_loss, 'r', label='Validation loss')
     plt.title('Training and validation loss')
     plt.legend()
-    plt.savefig('plot/plot_con1D.png')
+    plt.savefig('plot/plot_nn.png')

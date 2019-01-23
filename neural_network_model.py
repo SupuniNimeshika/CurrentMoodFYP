@@ -10,20 +10,12 @@ import pickle
 from text_processing import pre_process
 from ploting_graph import plot_history
 
+
 (unprocessed_texts, label) = data_source.get_data()
 text =[]
 for unprocessed_text in unprocessed_texts:
     text.append(pre_process(unprocessed_text))
 
-
-''''
-data['target'] = data.tags.astype('category').cat.codes
-data['num_words'] = data.post.apply(lambda x : len(x.split()))
-bins = [0,50,75, np.inf]
-word_distribution = data.groupby('bins').size().reset_index().rename(columns={0:'counts'})
-num_class = len(np.unique(data.tags.values))
-y = data['target'].values
-'''
 
 MAX_LENGTH =60
 tokenizer = Tokenizer()
@@ -58,33 +50,10 @@ history =model.fit(X_train,
                    epochs=15,
                    callbacks=[checkpointer])
 
-# predicted = model.predict(X_test)
-# predicted =np.argmax(predicted,axis=1)
-# accuracy_score(y_test,predicted)
 
 with open("model.pickle","wb") as f:
    pickle.dump(tokenizer,f)
-#
-# model.save('model.hdf5')
 
-'''
-from keras.models import load_model
-model = load_model("model.hdf5")
-
-with open("model.pickle","rb") as f:
-    tokenizer = pickle.load(f)
-
-# Testing with new data
-newtexts = ["Your new data", "Everything looks so stressed","sad"]
-
-sequences = tokenizer.text_to_sequences(newtexts)
-data = pad_sequences(sequences,maxlen=500)
-
-prediction =model.predict(data)
-print(predictions)
-prob = predictions.argmax(axis=1)
-print(prob)
-'''
 
 loss, accuracy = model.evaluate(X_train, to_categorical(y_train), verbose=False)
 print("Training Accuracy: {:.4f}".format(accuracy))
