@@ -1,10 +1,13 @@
 import itertools
 import numpy as np
 import matplotlib.pyplot as plt
+from pandas.tests.test_downstream import df
 
 from sklearn import svm, datasets
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
+
+from conv1D_model import model
 
 class_names = df['target'].unique()
 print(class_names)

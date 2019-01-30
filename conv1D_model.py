@@ -15,7 +15,7 @@ from ploting_graph import plot_history
 text =[]
 for unprocessed_text in unprocessed_texts:
     text.append(pre_process(unprocessed_text))
-    # print(pre_process(unprocessed_text))
+    print(pre_process(unprocessed_text))
 embedding_dim = 60
 # print(len(text))
 # print(len(label))

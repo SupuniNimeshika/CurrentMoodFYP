@@ -67,4 +67,8 @@ def pre_process(text):
     letters_only = re.sub(r'\d+', '', repitition_handled)
     return(letters_only)
 
+if __name__ == '__main__':
+    text=pre_process('👍I am Happy ✌')
+    print(text)
+
 
