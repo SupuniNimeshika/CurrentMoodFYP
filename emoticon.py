@@ -1,6 +1,5 @@
 import numpy as np
 
-
 import emoji
 
 def extract_emojis(str):

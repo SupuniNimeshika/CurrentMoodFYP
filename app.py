@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 import json
 import requests
 import ocr as ocr
-import predict as pr
 from tensorflow.python.keras.models import load_model
 import  tensorflow as tf
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
@@ -11,17 +10,13 @@ import unix_time as ut
 from text_processing import pre_process
 import emoticon as emo
 import numpy as np
-
-
+import weighted_algo as wa
 
 app = Flask(__name__)
 model=load_model("model/CNN-model.hdf5")
 graph = tf.get_default_graph()
 
 def prediction_model(text):
-    # modelNN = load_model("model/NN-model.hdf5")
-    modelCNN = model
-
     MAX_LENGTH =200
     with open("model.pickle","rb") as f:
         tokenizer = pickle.load(f)
@@ -32,9 +27,7 @@ def prediction_model(text):
     sequences = tokenizer.texts_to_sequences([pre_process_text])
     data = pad_sequences(sequences,maxlen=60,padding='post')
     print(data)
-    # predictionNN =modelNN.predict(data)
-    # print('--------------NN------------------')
-    # print(predictionNN)
+
 
     with graph.as_default():
         predictionCNN =model.predict(data)
@@ -43,8 +36,7 @@ def prediction_model(text):
 
 @app.route('/')
 def hello_world():
-    token='EAAbJHUYwk6YBAPgEoMWMik6VuWS52thYXVjmn49tQp2DBjAs44486uxZCLpKrcygv657NoSZCojeCmjnfh0lqBVNlntV6nyLajEzWTkgeUTM0AZCAXAELZCFFPtcSSc6EdnEPs5nZCqH8ITB2fsm9d5HzQpZCbaoKzWhgPpPlOffDZBkdEF1kDSTCZClUwk0UUhGNCBRMX8edgZDZD'
-    print ('Supuni')
+    return 'supuni'
 
 
 @app.route('/accessToken/<token>' , methods=['POST'])
@@ -55,16 +47,29 @@ def fb_data(token):
     re = 'https://graph.facebook.com/v3.2/me?fields=posts.since('+unixtime+')%7Bmessage%2Cfull_picture%7D&access_token='+token
     me1 = requests.get(re)
     # f1 =requests.get(friends)
-    data = me1.json();
-    json_array = json.dumps(data);
+    predictions = []
+    data = me1.json()
+    json_array = json.dumps(data)
     a = json.loads(json_array)
+    mood_result=[]
     print(a)
-    b=a['posts']
-    data=b['data']
-    predictions = iterate_post_array(data)
+    try:
+        b=a['posts']
+        data=b['data']
+        predictions = iterate_post_array(data)
+        mood_result=wa.weighted_post(predictions)
+    except KeyError:
+        print('---------------------There are no any post within 24 hours----------------------------')
 
-    # re1 = 'https://graph.facebook.com/v3.2/me?fields=first_name%2Clast_name%2Cbirthday%2Cgender%2Chometown%2Clocation%2Crelationship_status%2Cabout&access_token=EAAbJHUYwk6YBAGjlJUj2bZCKsbqwUZAkDeZCjPbZBHvu734EFZAo2tlxRZCDPiiJHCZCyPzBRugG7odzJJylvyYHmCgtwT7UN35pZAWAoeldaUO1yHtT6nEvvOXcedz0rDSLANgj6wUZAJq4ERhjKRQgZBfcHL69ZAJFPbSlykRpu2llliAjQrukdZCudyKCXWzRoiOZCiFeOuIwKvgZDZD'
-    return jsonify(predictions)
+# For User Profiling Part
+    re1 = 'https://graph.facebook.com/v3.2/me?fields=first_name%2Clast_name%2Cbirthday%2Cgender%2Chometown%2Clocation%2Crelationship_status%2Cabout%2Clikes%7Bartists_we_like%2Cband_interests%2Cband_members%2Clocation%2Clink%2Cmembers%2Calbums%7Blikes%7Busername%2Cid%7D%2Cname%2Cphoto_count%7D%7D&access_token='+token
+    me2 = requests.get(re1)
+    dataInfo = me2.json()
+    json_array_info = json.dumps(dataInfo)
+    info = json.loads(json_array_info)
+    print(info)
+    user= {'user profile':info,'mood':mood_result}
+    return jsonify(user)
 
 def iterate_post_array(data):
     mood_prediction =[]
@@ -81,7 +86,7 @@ def iterate_post_array(data):
             print('INFO---getfull picture')
         except KeyError:
             print('Error picture')
-            image_prediction=[0,0,0,0]
+            image_prediction = None
 
         try:
             post_message = post['message']
@@ -90,23 +95,32 @@ def iterate_post_array(data):
                 emoticon_prediction=emo.emoticon_result_calculation(emoti)
                 print('INFO---getfull emoticons')
             else:
-                emoticon_prediction=[0,0,0,0]
+                emoticon_prediction = None
             message_prediction = prediction_model(post_message)
             print('INFO---getfull message')
 
         except KeyError:
-            message_prediction = [0,0,0,0]
+            message_prediction = None
         print(message_prediction)
         print(emoticon_prediction)
         print(image_prediction)
 
-        text_prediction=np.multiply(0.5,message_prediction)+np.multiply(0.5,image_prediction)
-        total_prediction=np.multiply(0.4,text_prediction)+np.multiply(0.6,emoticon_prediction)
-        print(text_prediction)
-        print(total_prediction)
+        if(message_prediction is None and image_prediction is not None):
+            text_prediction = image_prediction
+        else:
+            text_prediction=np.multiply(0.5,message_prediction)+np.multiply(0.5,image_prediction)
+
+        if(emoticon_prediction is not None):
+            total_prediction=np.multiply(0.4,text_prediction)+np.multiply(0.6,emoticon_prediction)
+        else:
+            total_prediction=text_prediction
+
+        print('text-prediction'+str(text_prediction))
+        print('total-prediction'+str(total_prediction))
 
         mood_prediction.append(total_prediction.tolist())
-        print(mood_prediction)
+        print('mood-prediction'+str(mood_prediction))
+
     return mood_prediction
 
 

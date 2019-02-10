@@ -1,13 +1,9 @@
-import pandas as pd
-import numpy as np
 import re
 from bs4 import BeautifulSoup
 from nltk.tokenize import WordPunctTokenizer
 tok = WordPunctTokenizer()
 from nltk.stem import PorterStemmer
-from nltk.tokenize import sent_tokenize, word_tokenize
 ps =PorterStemmer()
-import string
 
 negations_dic={"isn't":"is not", "aren't":"are not", "wasn't":"was not","weren't":"were not",
                "haven't":"have not","hasn't":"has not","hadn't":"had not","won't":"will not",
@@ -30,18 +26,16 @@ stop_words={
                "and":'', "are":'', "at":'', "back":'',"be":'', "been":'', "being":'', "below":'', "beside":'',
                "besides":'',"between":'', "beyond":'', "bottom":'', "by":'', "call":'',"can":'',"could":'', "down":'',
                "did":'',"do":'',"does":'',"doing":'',"due":'', "eg":'', "either":'',"else":'', "elsewhere":'', "etc":'',"for":'',
-               "few":'', "from":'', "front":'', "get":'', "had":'', "has":'',
-               "have":'',"having":'', "he":'', "he'd":'', "her":'', "here":'', "here's":'', "hers":'',
-               "herself":'', "him":'', "himself":'', "his":'', "how":'',"how's":'',"i":'',"i'd":'',"if":'',"in":'',"into":'',
-               "is":'', "it":'',"it's":'', "its":'', "itself":'',"me":'', "might":'', "mine":'', "must":'', "my":'', "myself":'',
-               "of":'', "on":'',"only":'', "or":'', "other":'', "others":'',"our":'', "ours":'', "ourselves":'', "out":'', "over":'', "own":'',
-               "she":'',"she'd":'',"she'll":'',"she's":'', "side":'',"since":'', "so":'', "some":'', "somehow":'', "someone":'',
-               "such":'', "take":'', "than":'', "that":'', "the":'',"that's":'',"their":'',"theirs":'', "them":'', "themselves":'',"then":'', "there":'',"there's":'',
-               "these":'', "they":'',"they'd":'', "this":'', "those":'', "though":'',"to":'', "too":'',
-               "under":'', "until":'', "up":'', "very":'', "via":'', "was":'', "we":'',"we'd":'',
-               "were":'', "what":'',"what's":'', "when":'',"when's":'', "where":'', "where's":'',
-               "which":'', "while":'',"whither":'', "who":'',"who's":'', "whom":'', "whose":'', "why":'',"why's":'', "will":'', "with":'', "would":'',"yet":'',
-               "you":'',"you'd":'', "your":'', "yours":'', "yourself":'', "yourselves":'',
+               "few":'', "from":'', "front":'', "get":'', "had":'', "has":'',"herself":'', "him":'', "himself":'', "his":'',
+               "how":'',"how's":'',"i":'',"i'd":'',"if":'',"in":'',"into":'',"is":'', "it":'',"it's":'', "its":'', "itself":'',
+               "me":'', "might":'', "mine":'', "must":'', "my":'', "myself":'',"of":'', "on":'',"only":'', "or":'', "other":'',
+               "others":'',"our":'', "ours":'', "ourselves":'', "out":'', "over":'', "own":'',"she":'',"she'd":'',"she'll":'',
+               "she's":'', "side":'',"since":'', "so":'', "some":'', "somehow":'', "someone":'',"such":'', "take":'', "than":'',
+               "that":'', "the":'',"that's":'',"their":'',"theirs":'', "them":'', "themselves":'',"then":'', "there":'',"there's":'',
+               "these":'', "they":'',"they'd":'', "this":'', "those":'', "though":'',"to":'', "too":'',"under":'', "until":'',
+               "up":'', "very":'', "via":'', "was":'', "we":'',"we'd":'',"were":'', "what":'',"what's":'', "when":'',"when's":'',
+               "where":'', "where's":'',"which":'', "while":'',"whither":'', "who":'',"who's":'', "whom":'', "whose":'', "why":'',
+               "why's":'', "will":'', "with":'', "would":'',"yet":'',"you":'',"you'd":'', "your":'', "yours":'', "yourself":'', "yourselves":'',
 }
 
 stop_pattern =re.compile(r'\b('+'|'.join(stop_words.keys())+r')\b')
@@ -67,8 +61,5 @@ def pre_process(text):
     letters_only = re.sub(r'\d+', '', repitition_handled)
     return(letters_only)
 
-if __name__ == '__main__':
-    text=pre_process('👍I am Happy ✌')
-    print(text)
 
 
