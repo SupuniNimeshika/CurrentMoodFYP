@@ -3,7 +3,7 @@ import json
 import requests
 import ocr as ocr
 from tensorflow.python.keras.models import load_model
-import  tensorflow as tf
+import tensorflow as tf
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 import pickle
 import unix_time as ut
@@ -62,7 +62,7 @@ def fb_data(token):
         print('---------------------There are no any post within 24 hours----------------------------')
 
 # For User Profiling Part
-    re1 = 'https://graph.facebook.com/v3.2/me?fields=first_name%2Clast_name%2Cbirthday%2Cgender%2Chometown%2Clocation%2Crelationship_status%2Cabout%2Clikes%7Bartists_we_like%2Cband_interests%2Cband_members%2Clocation%2Clink%2Cmembers%2Calbums%7Blikes%7Busername%2Cid%7D%2Cname%2Cphoto_count%7D%7D&access_token='+token
+    re1 = 'https://graph.facebook.com/v3.2/me?fields=likes%7Bartists_we_like%7D&access_token='+token
     me2 = requests.get(re1)
     dataInfo = me2.json()
     json_array_info = json.dumps(dataInfo)
@@ -107,8 +107,11 @@ def iterate_post_array(data):
 
         if(message_prediction is None and image_prediction is not None):
             text_prediction = image_prediction
+        elif(message_prediction is not None and image_prediction is None):
+            text_prediction = message_prediction
         else:
             text_prediction=np.multiply(0.5,message_prediction)+np.multiply(0.5,image_prediction)
+
 
         if(emoticon_prediction is not None):
             total_prediction=np.multiply(0.4,text_prediction)+np.multiply(0.6,emoticon_prediction)
