@@ -17,7 +17,7 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 text =[]
 for unprocessed_text in unprocessed_texts:
     text.append(pre_process(unprocessed_text))
-    print(pre_process(unprocessed_text))
+    # print(pre_process(unprocessed_text))
 embedding_dim = 60
 
 MAX_LENGTH =60
@@ -48,7 +48,7 @@ checkpointer = ModelCheckpoint(filepath,monitor='val_acc',verbose=1,save_best_on
 
 history = model.fit(X_train, to_categorical(y_train),
                     epochs=25,
-                    verbose=False,
+                    verbose=True,
                     validation_data=(X_test, to_categorical(y_test)),
                     batch_size=64,
                     callbacks = [checkpointer])

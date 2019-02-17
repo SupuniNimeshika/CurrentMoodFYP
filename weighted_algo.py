@@ -14,11 +14,19 @@ def weighted_post(predction_list):
         final_prediction = np.array(final_prediction)+np.array(multiply)
         i=i+1
     print(final_prediction)
-    final_result = {}
-    j=0
     prediction_result = np.divide(final_prediction,division)
-    for result in prediction_result:
-        final_result.update({mood[j]:result})
-        j=j+1
     return prediction_result
+
+def append_mood(final_result):
+    final_label_result ={}
+    mood = ['happy', 'sad', 'calm', 'angry']
+    j = 0
+    for result in final_result:
+        print('--------------------------------------------------------')
+        print(result)
+
+        final_label_result.update({mood[j]:result})
+        j=j+1
+    return final_label_result
+
 

@@ -110,6 +110,7 @@ def fb_data(token):
     mood_result=np.multiply(0.7,last_hour_mood_result)+np.multiply(0.2,five_hour_mood_result)+np.multiply(0.1,eighteen_hour_mood_result)
     sum_result=sum(mood_result)
     mood_result_final=np.true_divide(mood_result,sum_result)
+    mood_result_label=wa.append_mood(mood_result_final.tolist())
 
 # For User Profiling Part
     re1 = 'https://graph.facebook.com/v3.2/me?fields=likes%7Bartists_we_like%7D&access_token='+token
@@ -119,7 +120,7 @@ def fb_data(token):
     info = json.loads(json_array_info)
     print(info)
     #append user info, mood, time range
-    user= {'user profile':info,'mood':mood_result_final.tolist(),'time':time_range}
+    user= {'user profile':info,'mood':mood_result_label,'time':time_range}
     return jsonify(user)
 
 def iterate_post_array(data):

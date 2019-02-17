@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b81ac33-3b22-4ff7-8c7e-2168747665cc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unix_time.py" beforeDir="false" afterPath="$PROJECT_DIR$/unix_time.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conv1D_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/conv1D_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/CNN-model.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/model/CNN-model.hdf5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/plot_nn.png" beforeDir="false" afterPath="$PROJECT_DIR$/plot/plot_nn.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weighted_algo.py" beforeDir="false" afterPath="$PROJECT_DIR$/weighted_algo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +22,7 @@
     <SUITE FILE_PATH="coverage/CurrentMoodDetection$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1548733698030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/CurrentMoodDetection$text_processing.coverage" NAME="text_processing Coverage Results" MODIFIED="1548754277073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CurrentMoodDetection$emoticon.coverage" NAME="emoticon Coverage Results" MODIFIED="1548068579348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/emoticon-model" />
-    <SUITE FILE_PATH="coverage/CurrentMoodDetection$conv1D_model.coverage" NAME="conv1D_model Coverage Results" MODIFIED="1549808755754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CurrentMoodDetection$conv1D_model.coverage" NAME="conv1D_model Coverage Results" MODIFIED="1550410079455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CurrentMoodDetection$unix_time.coverage" NAME="unix time Coverage Results" MODIFIED="1548742257050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CurrentMoodDetection$neural_network_model__1_.coverage" NAME="neural_network_model (1) Coverage Results" MODIFIED="1548675909517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CurrentMoodDetection$conv1D_model__1_.coverage" NAME="conv1D_model (1) Coverage Results" MODIFIED="1548676294097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -86,25 +87,28 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="6672" />
+          <entry key="py" value="6841" />
           <entry key="txt" value="777" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="778" />
-          <entry key="Python" value="6672" />
+          <entry key="Python" value="6841" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/weighted_algo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+            <state relative-caret-position="95">
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+              <folding>
+                <marker date="1550412630670" expanded="true" signature="638:921" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,7 +129,7 @@
         <entry file="file://$PROJECT_DIR$/unix_time.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -136,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conv1D_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+            <state relative-caret-position="349">
+              <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -145,10 +149,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neural_network_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
+            <state relative-caret-position="67">
               <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
@@ -160,8 +164,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-883">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="67">
+              <caret line="112" column="63" selection-start-line="112" selection-start-column="63" selection-end-line="112" selection-end-column="63" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -173,7 +177,7 @@
         <entry file="file://$PROJECT_DIR$/data/calm.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="93">
-              <caret line="166" column="108" lean-forward="true" selection-start-line="166" selection-end-line="166" selection-end-column="108" />
+              <caret line="166" column="108" selection-start-line="166" selection-end-line="166" selection-end-column="108" />
             </state>
           </provider>
         </entry>
@@ -182,7 +186,7 @@
         <entry file="file://$PROJECT_DIR$/data/angry.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="33">
-              <caret line="51" column="78" lean-forward="true" selection-start-line="51" selection-end-line="51" selection-end-column="78" />
+              <caret line="51" column="78" selection-start-line="51" selection-end-line="51" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -191,7 +195,7 @@
         <entry file="file://$PROJECT_DIR$/data/happy.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
-              <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-end-line="40" selection-end-column="44" />
+              <caret line="40" column="44" selection-start-line="40" selection-end-line="40" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -233,6 +237,7 @@
       <find>happy</find>
       <find>token</find>
       <find>get</find>
+      <find>weighted_post</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
@@ -265,11 +270,11 @@
         <option value="$PROJECT_DIR$/ocr.py" />
         <option value="$PROJECT_DIR$/emoticon.py" />
         <option value="$PROJECT_DIR$/text_processing.py" />
-        <option value="$PROJECT_DIR$/conv1D_model.py" />
         <option value="$PROJECT_DIR$/neural_network_model.py" />
         <option value="$PROJECT_DIR$/unix_time.py" />
-        <option value="$PROJECT_DIR$/weighted_algo.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/conv1D_model.py" />
+        <option value="$PROJECT_DIR$/weighted_algo.py" />
       </list>
     </option>
   </component>
@@ -513,7 +518,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16107382" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16107382" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -527,7 +532,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.6062323" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.6062323" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -669,38 +674,21 @@
     <entry file="file://$PROJECT_DIR$/data/angry.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
-          <caret line="51" column="78" lean-forward="true" selection-start-line="51" selection-end-line="51" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weighted_algo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <caret line="51" column="78" selection-start-line="51" selection-end-line="51" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/calm.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
-          <caret line="166" column="108" lean-forward="true" selection-start-line="166" selection-end-line="166" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unix_time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+          <caret line="166" column="108" selection-start-line="166" selection-end-line="166" selection-end-column="108" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/happy.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
-          <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-end-line="40" selection-end-column="44" />
+          <caret line="40" column="44" selection-start-line="40" selection-end-line="40" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -711,10 +699,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/neural_network_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/unix_time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-883">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="67">
+          <caret line="112" column="63" selection-start-line="112" selection-start-column="63" selection-end-line="112" selection-end-column="63" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -723,20 +731,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conv1D_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+        <state relative-caret-position="349">
+          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network_model.py">
+    <entry file="file://$PROJECT_DIR$/weighted_algo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+        <state relative-caret-position="95">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
           <folding>
-            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1550412630670" expanded="true" signature="638:921" ph="..." />
           </folding>
         </state>
       </provider>
