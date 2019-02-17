@@ -1,10 +1,10 @@
 import time
 import datetime
 
-def get_24_hours_time():
-    last_24 = datetime.datetime.now()-datetime.timedelta(hours=24)
-    unixtime = int(time.mktime(last_24.timetuple()))
+#1st, 6th, 24th
+
+def get_hours_time(set_hours):
+    hours = datetime.datetime.now()-datetime.timedelta(hours=set_hours)
+    unixtime = int(time.mktime(hours.timetuple()))
     return str(unixtime)
-
-
 

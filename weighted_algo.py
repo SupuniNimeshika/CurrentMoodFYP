@@ -20,5 +20,5 @@ def weighted_post(predction_list):
     for result in prediction_result:
         final_result.update({mood[j]:result})
         j=j+1
-    return final_result
+    return prediction_result
 
