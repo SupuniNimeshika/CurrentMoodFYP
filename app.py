@@ -113,7 +113,7 @@ def fb_data(token):
     mood_result_label=wa.append_mood(mood_result_final.tolist())
 
 # For User Profiling Part
-    re1 = 'https://graph.facebook.com/v3.2/me?fields=likes%7Bartists_we_like%7D&access_token='+token
+    re1 = 'https://graph.facebook.com/v3.2/me?fields=id%2Cname%2Cmusic&access_token='+token
     me2 = requests.get(re1)
     dataInfo = me2.json()
     json_array_info = json.dumps(dataInfo)

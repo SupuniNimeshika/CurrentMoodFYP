@@ -22,9 +22,6 @@ def append_mood(final_result):
     mood = ['happy', 'sad', 'calm', 'angry']
     j = 0
     for result in final_result:
-        print('--------------------------------------------------------')
-        print(result)
-
         final_label_result.update({mood[j]:result})
         j=j+1
     return final_label_result
